@@ -46,7 +46,7 @@ public class CameraController : MonoBehaviour
                 _LocalRotation.y -= Input.GetAxis("Mouse Y") * MouseSensitivity;
 
                 //Clamp Y Axis
-                _LocalRotation.y = Mathf.Clamp(_LocalRotation.y, 0f, 90f);
+                _LocalRotation.y = Mathf.Clamp(_LocalRotation.y, 0f, 75f);
             }
 
             if (Input.GetAxis("Mouse ScrollWheel") != 0f)

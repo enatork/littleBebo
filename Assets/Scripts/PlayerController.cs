@@ -18,48 +18,52 @@ public class PlayerController : MonoBehaviour {
     private Vector3 movement;
     private float distanceToGround;
     private Collider col;
+    private bool isDead;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
         distanceToGround = col.bounds.extents.y;
-
+        isDead = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (knockBackCounter <= 0)
+        if (!isDead)
         {
-            float lh = Input.GetAxis("Horizontal");
-            float lv = Input.GetAxis("Vertical");
-
-            movement = Camera.main.transform.TransformDirection(new Vector3(lh, 0f, lv));
-
-            movement.y = 0f;
-
-            movement = movement.normalized * moveSpeed * Time.deltaTime;
-
-            rb.MovePosition(transform.position + movement);
-
-            bool isGrounded = IsGrounded();
-
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            if (knockBackCounter <= 0)
             {
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            }
+                float lh = Input.GetAxis("Horizontal");
+                float lv = Input.GetAxis("Vertical");
 
-            if (lh != 0f || lv != 0f)
+                movement = Camera.main.transform.TransformDirection(new Vector3(lh, 0f, lv));
+
+                movement.y = 0f;
+
+                movement = movement.normalized * moveSpeed * Time.deltaTime;
+
+                rb.MovePosition(transform.position + movement);
+
+                bool isGrounded = IsGrounded();
+
+                if (Input.GetButtonDown("Jump") && isGrounded)
+                {
+                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                }
+
+                if (lh != 0f || lv != 0f)
+                {
+                    Rotate(lh, lv);
+                }
+
+                anim.SetBool("IsGrounded", isGrounded);
+                anim.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("Horizontal")) + Mathf.Abs(Input.GetAxis("Vertical"))));
+            }
+            else
             {
-                Rotate(lh, lv);
+                knockBackCounter -= Time.deltaTime;
             }
-
-            anim.SetBool("IsGrounded", isGrounded);
-            anim.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("Horizontal")) + Mathf.Abs(Input.GetAxis("Vertical"))));
-        }
-        else {
-            knockBackCounter -= Time.deltaTime;
         }
 	}
 
@@ -82,5 +86,10 @@ public class PlayerController : MonoBehaviour {
         Vector3 knockBackDirection = direction * knockBackForce;
 
         rb.AddForce(knockBackDirection, ForceMode.Impulse);
+    }
+
+    public void Die() {
+        isDead = true;
+        anim.SetBool("IsDead", isDead);
     }
 }
