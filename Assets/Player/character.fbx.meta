@@ -1,68 +1,69 @@
 fileFormatVersion: 2
-guid: 6d73433e4ca283542a0cb7e292521bd6
-timeCreated: 1506999808
+guid: 311d9bebc543c03418ed3c1ef156625d
+timeCreated: 1508188449
 licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 21
   fileIDToRecycleName:
     100000: Armature
     100002: armLeft1
     100004: armLeft2
     100006: armRight1
     100008: armRight2
-    100010: Bone_010
+    100010: Bone.010
     100012: //RootNode
     100014: chest
     100016: footLeft
-    100018: footRight
-    100020: handLeft
-    100022: handRight
-    100024: head
-    100026: itemLeft
-    100028: itemRight
-    100030: leggLeft1
-    100032: leggLeft2
-    100034: leggRight1
-    100036: leggRight2
-    100038: main
-    100040: neck
-    100042: Plane
-    100044: shoulders
+    100018: footLeft_end
+    100020: footRight
+    100022: footRight_end
+    100024: handLeft
+    100026: handRight
+    100028: head
+    100030: head_end
+    100032: itemLeft
+    100034: itemLeft_end
+    100036: itemRight
+    100038: itemRight_end
+    100040: leggLeft1
+    100042: leggLeft2
+    100044: leggRight1
+    100046: leggRight2
+    100048: main
+    100050: neck
+    100052: Plane
+    100054: shoulders
     400000: Armature
     400002: armLeft1
     400004: armLeft2
     400006: armRight1
     400008: armRight2
-    400010: Bone_010
+    400010: Bone.010
     400012: //RootNode
     400014: chest
     400016: footLeft
-    400018: footRight
-    400020: handLeft
-    400022: handRight
-    400024: head
-    400026: itemLeft
-    400028: itemRight
-    400030: leggLeft1
-    400032: leggLeft2
-    400034: leggRight1
-    400036: leggRight2
-    400038: main
-    400040: neck
-    400042: Plane
-    400044: shoulders
+    400018: footLeft_end
+    400020: footRight
+    400022: footRight_end
+    400024: handLeft
+    400026: handRight
+    400028: head
+    400030: head_end
+    400032: itemLeft
+    400034: itemLeft_end
+    400036: itemRight
+    400038: itemRight_end
+    400040: leggLeft1
+    400042: leggLeft2
+    400044: leggRight1
+    400046: leggRight2
+    400048: main
+    400050: neck
+    400052: Plane
+    400054: shoulders
     4300000: Plane
-    7400000: Default Take
-    7400002: ATTACK1
-    7400004: bind_pose
-    7400006: IDLE1
-    7400008: IDLE2
-    7400010: JUMP
-    7400012: Pose_library
-    7400014: PROJECTION
-    7400016: ROLL
-    7400018: RUN
-    7400020: WALK
+    7400000: Armature|bind pose
+    7400002: Armature|JUMP
     9500000: //RootNode
     13700000: Plane
   materials:
@@ -75,6 +76,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -85,6 +88,7 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -92,7 +96,10 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 1
     importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -108,6 +115,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
