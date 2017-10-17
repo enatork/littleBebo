@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour {
                     Rotate(lh, lv);
                 }
 
-                anim.SetBool("IsGrounded", isGrounded);
+                anim.SetBool("IsGrounded", IsGrounded());
                 anim.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("Horizontal")) + Mathf.Abs(Input.GetAxis("Vertical"))));
             }
             else
