@@ -13,12 +13,14 @@ public class PlayerController : MonoBehaviour {
 
     public float knockBackForce;
     public float knockBackTime;
+    public AudioClip jumpClip;
 
     private float knockBackCounter;
     private Vector3 movement;
     private float distanceToGround;
     private Collider col;
     private bool isDead;
+    private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour {
         col = GetComponent<Collider>();
         distanceToGround = col.bounds.extents.y;
         isDead = false;
+        audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -50,6 +53,7 @@ public class PlayerController : MonoBehaviour {
                 if (Input.GetButtonDown("Jump") && isGrounded)
                 {
                     rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                    audioSource.PlayOneShot(jumpClip, 1f);
                 }
 
                 if (lh != 0f || lv != 0f)
